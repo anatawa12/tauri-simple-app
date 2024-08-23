@@ -1,5 +1,8 @@
 name: Release
 
+on:
+  workflow_dispatch:
+
 jobs:
   build-rust:
     name: Build rust
@@ -64,7 +67,6 @@ jobs:
       - name: Move artifacts
         shell: bash
         env:
-          VERSION: ${{ needs.pre-build.outputs.gui-version }}
           DIST_PATH: ${{ matrix.dist-path }}
         run: |-
           mkdir artifacts
