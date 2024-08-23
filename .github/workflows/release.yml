@@ -54,6 +54,8 @@ jobs:
         if: ${{ matrix.triple != 'universal-apple-darwin' }}
         with:
           target: ${{ matrix.triple }}
+      - name: install tauri
+        run: npm ci
 
       - name: Setup
         run: ${{ matrix.setup }}
