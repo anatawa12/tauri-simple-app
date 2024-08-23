@@ -107,6 +107,8 @@ jobs:
           merge-multiple: true
 
       - name: Push tag and create
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           VERSION=$(<Cargo.toml grep '^version = ' | head -1 | cut -d= -f2 | cut -d'"' -f2)
 
